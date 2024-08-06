@@ -27,7 +27,7 @@ services:
             - 33061:3306
 
     node:
-        container_name: e-skincare-node
+        container_name: e-payment-node
         image: node:20-alpine
         volumes:
             - .:/app
