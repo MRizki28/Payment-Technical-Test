@@ -41,13 +41,4 @@ class AuthRepositories implements AuthInterfaces
             return $this->error($th->getMessage());
         }
     }
-
-    public function logout(Request $request)
-    {
-        try {
-            //code...
-        } catch (\Throwable $th) {
-            //throw $th;
-        }
-    }
 }
