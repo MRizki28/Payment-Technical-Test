@@ -22,16 +22,19 @@ RUN apt-get update && apt-get install -y \
     libmagickwand-dev \
     && rm -rf /var/lib/apt/lists/*
 
-
-    # Install Node.js
+# Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-&& apt-get install -y nodejs
+    && apt-get install -y nodejs
 
 # Configure and install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd pdo pdo_mysql sockets mysqli zip \
+    && docker-php-ext-install -j$(nproc) gd pdo pdo_mysql sockets mysqli zip pcntl \
     && pecl install imagick \
     && docker-php-ext-enable imagick
+
+# Install Redis PHP extension
+RUN pecl install redis \
+    && docker-php-ext-enable redis
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
