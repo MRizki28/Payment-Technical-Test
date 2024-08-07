@@ -1,8 +1,22 @@
 # About
 Sistem ini menggunakan Laravel 11, pastikan php anda 8+ , dan sistem ini menggunaakan caching redis jadi diharapkan komputer anda sudah terinstall redis maupun ext php `php-ext-redis`
 
+# API Documentation
+```bash
+https://documenter.getpostman.com/view/20628988/2sA3rzJXhK
+```
+
+# Error
+jika anda mendapatkan error passport ` "message": "Personal access client not found. Please create one."`
+jalankan command ini
+```bash
+php artisan passport:client --personal
+```
+kemudian enter sampai selesai
+
+
 # Path 
-Untuk logika bisnis anda bisa melohat pada folder reposiotires
+Untuk logika bisnis anda bisa melihat pada folder repositories
 
     ├── ...
     ├── App                      
@@ -49,6 +63,12 @@ php artisan queue:work
 php artisan test
 ```
 
+### Horizon 
+silahkan akses `http://localhost:8000/horizon` jika anda mengunakan docker ubah port ke `8888`
+```bash
+php artisan horizon
+```
+
 ### Docker
 Jika anda menggunakan docker 
 
@@ -60,6 +80,7 @@ open terminal apps in docker
 ```bash
 docker exec -it e-payment bash
 ```
+setelah berhasil silahkan jalankan command artisan seperti biasa
 
 jika anda menggunakan docker database sudah di setup via phpmyadmin dengan user dan password default 
 `root` dan password `12345678` jika anda ingin menggubah silahkan ubah pada .env yang tertera komentar
@@ -68,4 +89,12 @@ jika anda menggunakan docker database sudah di setup via phpmyadmin dengan user 
 http://localhost:8083
 ```
 
-setelah berhasil silahkan jalankan command artisan seperti biasa
+untuk mengakses redis pada docker
+```bash
+docker exec -it e-payment-redis bash
+```
+
+setelah itu jalankan command redis seperti biasa
+```bash
+redis-cli
+```
