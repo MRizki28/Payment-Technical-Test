@@ -27,4 +27,26 @@ class ApiTest extends TestCase
             'amount' => 1000.00,
         ]);
     }
+
+    public function test_get_data_history_transaction()
+    {
+        $user = User::factory()->create();
+        $token = $user->createToken('auth_token')->accessToken;
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $token,
+        ])->getJson('/api/v1/transaction/');
+
+        $response->assertStatus(200);
+    }
+
+    public function test_get_data_summary_transaction()
+    {
+        $user = User::factory()->create();
+        $token = $user->createToken('auth_token')->accessToken;
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $token,
+        ])->getJson('/api/v1/transaction/summary');
+
+        $response->assertStatus(200);
+    }
 }
