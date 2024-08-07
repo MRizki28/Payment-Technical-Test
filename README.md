@@ -16,7 +16,7 @@ kemudian enter sampai selesai
 
 
 # Path 
-Untuk logika bisnis anda bisa melohat pada folder reposiotires
+Untuk logika bisnis anda bisa melihat pada folder repositories
 
     ├── ...
     ├── App                      
